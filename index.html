@@ -1,13 +1,479 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mk-ic3.github.io</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Name | Astrophysics</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #05060f;
+      --surface: #0c0e1e;
+      --accent: #a78bfa;
+      --accent2: #60a5fa;
+      --text: #e2e8f0;
+      --muted: #64748b;
+      --border: rgba(167,139,250,0.15);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Space Mono', monospace;
+      font-size: 14px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── Starfield ── */
+    #stars {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background:
+        radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.7) 0%, transparent 100%),
+        radial-gradient(1px 1px at 30% 60%, rgba(255,255,255,0.5) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 50% 10%, rgba(167,139,250,0.8) 0%, transparent 100%),
+        radial-gradient(1px 1px at 70% 80%, rgba(255,255,255,0.6) 0%, transparent 100%),
+        radial-gradient(1px 1px at 85% 35%, rgba(96,165,250,0.7) 0%, transparent 100%),
+        radial-gradient(2px 2px at 20% 85%, rgba(255,255,255,0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 90% 90%, rgba(167,139,250,0.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 60% 45%, rgba(255,255,255,0.5) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 40% 30%, rgba(255,255,255,0.6) 0%, transparent 100%),
+        radial-gradient(1px 1px at 75% 15%, rgba(96,165,250,0.6) 0%, transparent 100%);
+    }
+
+    /* ── Layout ── */
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      position: relative; z-index: 1;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      padding: 1.2rem 0;
+      background: rgba(5,6,15,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    nav .inner {
+      max-width: 860px; margin: 0 auto; padding: 0 2rem;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    nav .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem; font-style: italic;
+      color: var(--accent); letter-spacing: 0.05em;
+      text-decoration: none;
+    }
+    nav ul {
+      list-style: none; display: flex; gap: 2rem;
+    }
+    nav a {
+      color: var(--muted); text-decoration: none;
+      font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--accent); }
+
+    /* ── Hero ── */
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding-top: 5rem;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 200px;
+      gap: 4rem; align-items: center;
+    }
+    .eyebrow {
+      font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 1rem;
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .eyebrow::before {
+      content: ''; display: block;
+      width: 2rem; height: 1px; background: var(--accent);
+    }
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 7vw, 5rem);
+      font-weight: 300; line-height: 1.05;
+      color: #fff;
+      margin-bottom: 1.5rem;
+    }
+    h1 em { font-style: italic; color: var(--accent); }
+    .tagline {
+      color: var(--muted); max-width: 480px;
+      font-size: 13px; margin-bottom: 2.5rem;
+    }
+    .btn-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-block; padding: 0.7rem 1.5rem;
+      border: 1px solid var(--accent); color: var(--accent);
+      text-decoration: none; font-size: 12px; letter-spacing: 0.1em;
+      text-transform: uppercase; transition: background 0.2s, color 0.2s;
+    }
+    .btn:hover { background: var(--accent); color: var(--bg); }
+    .btn.ghost { border-color: var(--border); color: var(--muted); }
+    .btn.ghost:hover { border-color: var(--accent2); color: var(--accent2); background: transparent; }
+
+    /* Avatar placeholder */
+    .avatar-wrap {
+      position: relative;
+    }
+    .avatar {
+      width: 180px; height: 180px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem; color: var(--bg); font-style: italic;
+    }
+    .avatar-wrap::after {
+      content: '';
+      position: absolute; inset: -8px; border-radius: 50%;
+      border: 1px solid var(--border);
+    }
+
+    /* ── Section base ── */
+    section { padding: 6rem 0; }
+    .section-label {
+      font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 0.5rem;
+    }
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem; font-weight: 300; color: #fff;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── About ── */
+    #about { border-top: 1px solid var(--border); }
+    .about-body {
+      display: grid; grid-template-columns: 3fr 2fr; gap: 4rem;
+    }
+    .about-text p { color: var(--muted); margin-bottom: 1rem; font-size: 13px; }
+    .info-list { list-style: none; }
+    .info-list li {
+      padding: 0.6rem 0; border-bottom: 1px solid var(--border);
+      display: flex; flex-direction: column; gap: 0.1rem;
+    }
+    .info-list .label { color: var(--muted); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
+    .info-list .value { color: var(--text); font-size: 13px; }
+
+    /* ── Research ── */
+    #research { border-top: 1px solid var(--border); }
+    .card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 1.75rem;
+      transition: border-color 0.2s, transform 0.2s;
+      position: relative; overflow: hidden;
+    }
+    .card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      opacity: 0; transition: opacity 0.2s;
+    }
+    .card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .card:hover::before { opacity: 1; }
+    .card-icon { font-size: 1.5rem; margin-bottom: 1rem; }
+    .card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem; font-weight: 300; color: #fff;
+      margin-bottom: 0.5rem;
+    }
+    .card p { color: var(--muted); font-size: 12px; line-height: 1.6; }
+
+    /* ── Publications ── */
+    #publications { border-top: 1px solid var(--border); }
+    .pub-list { list-style: none; }
+    .pub-item {
+      padding: 1.5rem 0; border-bottom: 1px solid var(--border);
+      display: grid; grid-template-columns: auto 1fr; gap: 1.5rem;
+    }
+    .pub-year {
+      color: var(--accent); font-size: 12px; letter-spacing: 0.1em;
+      padding-top: 0.2rem; min-width: 40px;
+    }
+    .pub-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem; color: #fff; font-weight: 300;
+      margin-bottom: 0.25rem;
+    }
+    .pub-meta { color: var(--muted); font-size: 12px; }
+    .pub-meta em { color: var(--accent2); font-style: normal; }
+    .pub-link {
+      display: inline-block; margin-top: 0.5rem;
+      font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); text-decoration: none;
+    }
+    .pub-link:hover { color: var(--accent2); }
+
+    /* ── Contact ── */
+    #contact { border-top: 1px solid var(--border); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+    .contact-info p { color: var(--muted); font-size: 13px; margin-bottom: 1.5rem; }
+    .contact-links { list-style: none; }
+    .contact-links li {
+      border-bottom: 1px solid var(--border); padding: 0.75rem 0;
+    }
+    .contact-links a {
+      color: var(--text); text-decoration: none; font-size: 13px;
+      display: flex; justify-content: space-between; align-items: center;
+      transition: color 0.2s;
+    }
+    .contact-links a:hover { color: var(--accent); }
+    .contact-links .link-label { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; }
+    .address-block {
+      background: var(--surface); border: 1px solid var(--border);
+      padding: 1.75rem;
+    }
+    .address-block h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem; font-weight: 300; color: #fff;
+      margin-bottom: 1rem;
+    }
+    .address-block p { color: var(--muted); font-size: 13px; line-height: 1.8; }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 0; text-align: center;
+      color: var(--muted); font-size: 12px;
+    }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    /* ── Fade-in animation ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { animation: fadeUp 0.8s ease both; }
+    .fade-up:nth-child(2) { animation-delay: 0.15s; }
+    .fade-up:nth-child(3) { animation-delay: 0.3s; }
+    .fade-up:nth-child(4) { animation-delay: 0.45s; }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .avatar-wrap { display: none; }
+      .about-body, .card-grid, .contact-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
-    <h1>Welcome to mk-ic3's GitHub Pages</h1>
-    <p>This is the default homepage for your GitHub Pages site.</p>
-    <p>You can customize this page by editing the index.html file in your repository.</p>
+
+<div id="stars"></div>
+
+<!-- Nav -->
+<nav>
+  <div class="inner">
+    <a href="#hero" class="logo">Your Name</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#publications">Papers</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow fade-up">PhD Candidate · Astrophysics</p>
+        <h1 class="fade-up">Your <em>Name</em></h1>
+        <p class="tagline fade-up">
+          Exploring the Universe's most extreme environments — from the dynamics of black hole accretion disks to the large-scale structure of the cosmos.
+        </p>
+        <div class="btn-row fade-up">
+          <a href="#research" class="btn">View Research</a>
+          <a href="cv.pdf" class="btn ghost">Download CV</a>
+        </div>
+      </div>
+      <div class="avatar-wrap fade-up">
+        <div class="avatar">YN</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about">
+  <div class="container">
+    <p class="section-label">About</p>
+    <h2>Who I Am</h2>
+    <div class="about-body">
+      <div class="about-text">
+        <p>
+          I am a PhD candidate in the Department of Astrophysics at [Your University], working under the supervision of Prof. [Advisor Name]. My research broadly focuses on [your research area], combining observational data with theoretical modeling and numerical simulations.
+        </p>
+        <p>
+          Before coming here, I completed my BSc in Physics at [Undergraduate University]. Outside of research, I enjoy science outreach, stargazing, and contributing to open-source astronomy software.
+        </p>
+        <p>
+          I am particularly interested in bridging cutting-edge observational facilities — including [telescope/instrument] — with computational methods to answer fundamental questions about the Universe.
+        </p>
+      </div>
+      <ul class="info-list">
+        <li>
+          <span class="label">Institution</span>
+          <span class="value">[Your University]</span>
+        </li>
+        <li>
+          <span class="label">Department</span>
+          <span class="value">Astrophysics</span>
+        </li>
+        <li>
+          <span class="label">Advisor</span>
+          <span class="value">Prof. [Name]</span>
+        </li>
+        <li>
+          <span class="label">Research Area</span>
+          <span class="value">[e.g. High-Energy Astrophysics]</span>
+        </li>
+        <li>
+          <span class="label">Started</span>
+          <span class="value">[Year]</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Research -->
+<section id="research">
+  <div class="container">
+    <p class="section-label">Research</p>
+    <h2>What I Work On</h2>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon">🌑</div>
+        <h3>Black Hole Accretion</h3>
+        <p>Studying the physical processes governing matter inflow around stellar-mass and supermassive black holes using multi-wavelength observational data.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🌌</div>
+        <h3>Large-Scale Structure</h3>
+        <p>Mapping the cosmic web and probing dark matter distribution through spectroscopic galaxy surveys and weak gravitational lensing analysis.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">💫</div>
+        <h3>Stellar Evolution</h3>
+        <p>Investigating late-stage stellar evolution and the formation of compact objects using photometric time-series data and population synthesis models.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔭</div>
+        <h3>Numerical Simulations</h3>
+        <p>Developing and running MHD simulations to model plasma dynamics in extreme gravitational and magnetic field environments.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Publications -->
+<section id="publications">
+  <div class="container">
+    <p class="section-label">Publications</p>
+    <h2>Selected Papers</h2>
+    <ul class="pub-list">
+      <li class="pub-item">
+        <span class="pub-year">2025</span>
+        <div>
+          <p class="pub-title">Title of Your Most Recent Paper Goes Here</p>
+          <p class="pub-meta"><strong>Your Name</strong>, Co-author A, Co-author B · <em>The Astrophysical Journal</em>, Vol. XXX</p>
+          <a href="#" class="pub-link">→ arXiv:2501.XXXXX</a>
+        </div>
+      </li>
+      <li class="pub-item">
+        <span class="pub-year">2024</span>
+        <div>
+          <p class="pub-title">Title of Your Second Paper Goes Here</p>
+          <p class="pub-meta"><strong>Your Name</strong>, Co-author C · <em>Monthly Notices of the Royal Astronomical Society</em>, Vol. XXX</p>
+          <a href="#" class="pub-link">→ arXiv:2401.XXXXX</a>
+        </div>
+      </li>
+      <li class="pub-item">
+        <span class="pub-year">2023</span>
+        <div>
+          <p class="pub-title">Title of Your Earlier Work</p>
+          <p class="pub-meta">Co-author A, <strong>Your Name</strong>, Co-author D · <em>Astronomy &amp; Astrophysics</em>, Vol. XXX</p>
+          <a href="#" class="pub-link">→ arXiv:2301.XXXXX</a>
+        </div>
+      </li>
+    </ul>
+    <p style="margin-top:2rem">
+      <a href="https://ui.adsabs.harvard.edu" target="_blank" class="btn ghost">Full list on NASA ADS →</a>
+    </p>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <div class="container">
+    <p class="section-label">Contact</p>
+    <h2>Get in Touch</h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p>I'm always happy to discuss science, potential collaborations, or outreach opportunities. Feel free to reach out via email.</p>
+        <ul class="contact-links">
+          <li>
+            <a href="mailto:you@university.edu">
+              <span>you@university.edu</span>
+              <span class="link-label">Email</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/yourusername" target="_blank">
+              <span>github.com/yourusername</span>
+              <span class="link-label">GitHub</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://orcid.org/0000-0000-0000-0000" target="_blank">
+              <span>ORCID Profile</span>
+              <span class="link-label">ORCID</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://twitter.com/yourhandle" target="_blank">
+              <span>@yourhandle</span>
+              <span class="link-label">Twitter / X</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="address-block">
+        <h3>Mailing Address</h3>
+        <p>
+          Department of Astrophysics<br>
+          [Your University]<br>
+          [Building Name], Room [XXX]<br>
+          [City, State/Country, ZIP]
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <p>© 2025 Your Name · Built with HTML/CSS · Hosted on <a href="https://pages.github.com" target="_blank">GitHub Pages</a></p>
+  </div>
+</footer>
+
 </body>
 </html>
