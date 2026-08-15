@@ -1,154 +1,482 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Your Name</title>
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    <meta charset="UTF-8">
 
-    body {
-      font-family: 'EB Garamond', Georgia, serif;
-      font-size: 18px;
-      line-height: 1.7;
-      color: #1a1a1a;
-      background: #fafaf8;
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 5rem 2rem 4rem;
-    }
+    <!-- Responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    /* Header */
-    header { margin-bottom: 4rem; }
-    h1 { font-size: 1.6rem; font-weight: 500; margin-bottom: 0.25rem; }
-    .subtitle { color: #666; font-style: italic; font-size: 1rem; }
+    <title>Your Name — Graduate Researcher</title>
 
-    nav { margin-top: 1.25rem; }
-    nav a {
-      color: #1a1a1a;
-      text-decoration: none;
-      margin-right: 1.5rem;
-      font-size: 0.95rem;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 1px;
-    }
-    nav a:hover { border-color: #1a1a1a; }
+    <meta
+        name="description"
+        content="Personal academic homepage of Your Name, graduate researcher in physics."
+    >
 
-    /* Sections */
-    section { margin-bottom: 3.5rem; }
-    h2 {
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #999;
-      margin-bottom: 1.25rem;
-    }
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    p { margin-bottom: 1rem; color: #333; }
-    p:last-child { margin-bottom: 0; }
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600&display=swap"
+        rel="stylesheet"
+    >
 
-    /* Publications */
-    .pub { margin-bottom: 1.25rem; }
-    .pub-title { color: #1a1a1a; }
-    .pub-meta { color: #666; font-size: 0.95rem; font-style: italic; }
-    .pub a { color: #1a1a1a; font-size: 0.85rem; font-style: normal; }
-
-    /* Links */
-    .links { list-style: none; }
-    .links li { margin-bottom: 0.4rem; }
-    .links a {
-      color: #1a1a1a;
-      text-decoration: none;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 1px;
-    }
-    .links a:hover { border-color: #1a1a1a; }
-
-    /* Divider */
-    hr { border: none; border-top: 1px solid #e5e5e5; margin: 3.5rem 0; }
-
-    footer { color: #aaa; font-size: 0.85rem; font-style: italic; }
-  </style>
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<header>
-  <h1>Your Name</h1>
-  <p class="subtitle">PhD Candidate in Astrophysics · [Your University]</p>
-  <nav>
-    <a href="#research">Research</a>
-    <a href="#publications">Papers</a>
-    <a href="#contact">Contact</a>
-    <a href="cv.pdf">CV</a>
-  </nav>
-</header>
+    <!-- =========================================
+         HEADER / NAVIGATION
+         ========================================= -->
+    <header class="site-header">
+        <div class="container header-inner">
 
-<section id="about">
-  <p>
-    I am a PhD candidate in the Department of Astrophysics at [Your University], advised by Prof. [Advisor Name]. My work focuses on [your research area], using a combination of observations, theory, and numerical simulations.
-  </p>
-  <p>
-    Previously, I completed my BSc in Physics at [Undergraduate University]. I am particularly interested in [specific topic or question].
-  </p>
-</section>
+            <a href="#" class="site-name">
+                Your Name
+            </a>
 
-<hr>
+            <nav class="site-nav" aria-label="Main navigation">
+                <a href="#about">About</a>
+                <a href="#research">Research</a>
+                <a href="#publications">Publications</a>
+                <a href="#activities">Activities</a>
+                <a href="#contact">Contact</a>
+            </nav>
 
-<section id="research">
-  <h2>Research</h2>
-  <p>
-    My current projects include [Project 1 — one sentence], and [Project 2 — one sentence]. I use [methods / instruments / telescopes] and collaborate with [groups or institutions].
-  </p>
-</section>
+        </div>
+    </header>
 
-<hr>
 
-<section id="publications">
-  <h2>Selected Papers</h2>
+    <main>
 
-  <div class="pub">
-    <p class="pub-title">Title of Your Most Recent Paper</p>
-    <p class="pub-meta"><strong>Your Name</strong>, Co-author A, Co-author B. <em>The Astrophysical Journal</em>, 2025.</p>
-    <p><a href="#">arXiv:2501.XXXXX</a></p>
-  </div>
+        <!-- =========================================
+             HERO
+             ========================================= -->
+        <section class="hero">
+            <div class="container">
 
-  <div class="pub">
-    <p class="pub-title">Title of Your Second Paper</p>
-    <p class="pub-meta"><strong>Your Name</strong>, Co-author C. <em>MNRAS</em>, 2024.</p>
-    <p><a href="#">arXiv:2401.XXXXX</a></p>
-  </div>
+                <p class="eyebrow">
+                    PHYSICS · GRADUATE RESEARCHER
+                </p>
 
-  <div class="pub">
-    <p class="pub-title">Title of Earlier Work</p>
-    <p class="pub-meta">Co-author A, <strong>Your Name</strong>. <em>Astronomy &amp; Astrophysics</em>, 2023.</p>
-    <p><a href="#">arXiv:2301.XXXXX</a></p>
-  </div>
+                <h1>
+                    Your Name
+                </h1>
 
-  <p style="margin-top:1.5rem; font-size:0.95rem;">
-    Full list on <a href="https://ui.adsabs.harvard.edu" target="_blank" style="color:#1a1a1a;">NASA ADS</a>.
-  </p>
-</section>
+                <p class="hero-description">
+                    Graduate student studying astrophysical plasma physics,
+                    numerical simulations, and high-energy astrophysical phenomena.
+                </p>
 
-<hr>
+                <div class="hero-links">
+                    <a href="#" class="link-accent">CV ↗</a>
+                    <a href="#">GitHub ↗</a>
+                    <a href="#">Google Scholar ↗</a>
+                    <a href="#">ORCID ↗</a>
+                </div>
 
-<section id="contact">
-  <h2>Contact</h2>
-  <ul class="links">
-    <li><a href="mailto:you@university.edu">you@university.edu</a></li>
-    <li><a href="https://github.com/yourusername" target="_blank">GitHub</a></li>
-    <li><a href="https://orcid.org/0000-0000-0000-0000" target="_blank">ORCID</a></li>
-  </ul>
-  <p style="margin-top:1rem; color:#666; font-size:0.95rem;">
-    [Department], [Building] Room [XXX]<br>
-    [University], [City, Country]
-  </p>
-</section>
+            </div>
+        </section>
 
-<footer>
-  <p>© 2025 Your Name</p>
-</footer>
+
+        <!-- =========================================
+             ABOUT
+             ========================================= -->
+        <section id="about" class="section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="section-number">01</span>
+                    <h2>About</h2>
+                </div>
+
+                <div class="about-grid">
+
+                    <div class="about-main">
+                        <p class="lead">
+                            I am a graduate student working on astrophysical
+                            plasma physics and numerical simulations.
+                        </p>
+
+                        <p>
+                            My research focuses on understanding plasma processes
+                            in astrophysical environments through theoretical
+                            analysis and computational modeling.
+                        </p>
+                    </div>
+
+                    <aside class="about-meta">
+                        <div>
+                            <span class="meta-label">Based</span>
+                            <span>Japan</span>
+                        </div>
+
+                        <div>
+                            <span class="meta-label">Field</span>
+                            <span>Astrophysical Plasma Physics</span>
+                        </div>
+
+                        <div>
+                            <span class="meta-label">Status</span>
+                            <span>Graduate Student</span>
+                        </div>
+                    </aside>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- =========================================
+             RESEARCH
+             ========================================= -->
+        <section id="research" class="section section-tinted">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="section-number">02</span>
+                    <h2>Research</h2>
+                </div>
+
+                <div class="research-list">
+
+                    <article class="research-item">
+
+                        <div class="research-index">
+                            01
+                        </div>
+
+                        <div class="research-content">
+                            <h3>Magnetic Reconnection</h3>
+
+                            <p>
+                                Understanding magnetic energy conversion,
+                                particle acceleration, and plasma dynamics
+                                in reconnection environments.
+                            </p>
+
+                            <div class="tags">
+                                <span>MHD</span>
+                                <span>Reconnection</span>
+                                <span>Plasma</span>
+                            </div>
+                        </div>
+
+                    </article>
+
+
+                    <article class="research-item">
+
+                        <div class="research-index">
+                            02
+                        </div>
+
+                        <div class="research-content">
+                            <h3>Numerical Simulations</h3>
+
+                            <p>
+                                Computational approaches for studying
+                                nonlinear plasma dynamics and astrophysical
+                                systems.
+                            </p>
+
+                            <div class="tags">
+                                <span>Numerical</span>
+                                <span>Simulation</span>
+                                <span>Python</span>
+                            </div>
+                        </div>
+
+                    </article>
+
+
+                    <article class="research-item">
+
+                        <div class="research-index">
+                            03
+                        </div>
+
+                        <div class="research-content">
+                            <h3>Astrophysical Plasmas</h3>
+
+                            <p>
+                                Plasma processes occurring in high-energy
+                                astrophysical environments.
+                            </p>
+
+                            <div class="tags">
+                                <span>Astrophysics</span>
+                                <span>Plasma Physics</span>
+                            </div>
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- =========================================
+             PUBLICATIONS
+             ========================================= -->
+        <section id="publications" class="section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="section-number">03</span>
+                    <h2>Publications</h2>
+                </div>
+
+
+                <div class="publication-list">
+
+                    <article class="publication">
+
+                        <div class="publication-year">
+                            2026
+                        </div>
+
+                        <div class="publication-body">
+
+                            <h3>
+                                Your Paper Title Goes Here
+                            </h3>
+
+                            <p class="authors">
+                                Your Name, A. Researcher, B. Researcher
+                            </p>
+
+                            <p class="journal">
+                                <em>Journal Name</em>
+                            </p>
+
+                            <div class="publication-links">
+                                <a href="#">Paper ↗</a>
+                                <a href="#">arXiv ↗</a>
+                                <a href="#">DOI ↗</a>
+                                <a href="#">Code ↗</a>
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="publication">
+
+                        <div class="publication-year">
+                            2025
+                        </div>
+
+                        <div class="publication-body">
+
+                            <h3>
+                                Another Research Paper
+                            </h3>
+
+                            <p class="authors">
+                                Your Name, C. Researcher
+                            </p>
+
+                            <p class="journal">
+                                <em>Journal Name</em>
+                            </p>
+
+                            <div class="publication-links">
+                                <a href="#">Paper ↗</a>
+                                <a href="#">arXiv ↗</a>
+                                <a href="#">DOI ↗</a>
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- =========================================
+             ACTIVITIES
+             ========================================= -->
+        <section id="activities" class="section section-tinted">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="section-number">04</span>
+                    <h2>Activities</h2>
+                </div>
+
+
+                <div class="timeline">
+
+                    <article class="timeline-item">
+
+                        <div class="timeline-year">
+                            2026
+                        </div>
+
+                        <div class="timeline-content">
+                            <h3>Conference Name</h3>
+
+                            <p>
+                                Oral presentation —
+                                <em>Title of Presentation</em>
+                            </p>
+                        </div>
+
+                    </article>
+
+
+                    <article class="timeline-item">
+
+                        <div class="timeline-year">
+                            2025
+                        </div>
+
+                        <div class="timeline-content">
+                            <h3>Conference Name</h3>
+
+                            <p>
+                                Poster presentation —
+                                <em>Title of Poster</em>
+                            </p>
+                        </div>
+
+                    </article>
+
+
+                    <article class="timeline-item">
+
+                        <div class="timeline-year">
+                            2025
+                        </div>
+
+                        <div class="timeline-content">
+                            <h3>Academic Award</h3>
+
+                            <p>
+                                Award or fellowship description.
+                            </p>
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- =========================================
+             PHOTOGRAPHY
+             ========================================= -->
+        <section class="section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="section-number">05</span>
+                    <h2>Photography</h2>
+                </div>
+
+                <div class="photo-intro">
+
+                    <p>
+                        Outside research, I enjoy photography and visual art.
+                    </p>
+
+                    <a href="#" class="link-accent">
+                        View my Unsplash ↗
+                    </a>
+
+                </div>
+
+
+                <div class="photo-grid">
+
+                    <div class="photo-placeholder">
+                        <span>IMAGE 01</span>
+                    </div>
+
+                    <div class="photo-placeholder">
+                        <span>IMAGE 02</span>
+                    </div>
+
+                    <div class="photo-placeholder">
+                        <span>IMAGE 03</span>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- =========================================
+             CONTACT
+             ========================================= -->
+        <section id="contact" class="section section-contact">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="section-number">06</span>
+                    <h2>Contact</h2>
+                </div>
+
+                <div class="contact-content">
+
+                    <p class="lead">
+                        Interested in research, collaboration, or just
+                        talking about physics?
+                    </p>
+
+                    <a
+                        href="mailto:your.email@example.com"
+                        class="email-link"
+                    >
+                        your.email@example.com
+                    </a>
+
+                    <div class="social-links">
+                        <a href="#">GitHub ↗</a>
+                        <a href="#">Google Scholar ↗</a>
+                        <a href="#">ORCID ↗</a>
+                        <a href="#">LinkedIn ↗</a>
+                        <a href="#">Unsplash ↗</a>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         FOOTER
+         ========================================= -->
+    <footer class="site-footer">
+        <div class="container footer-inner">
+
+            <span>
+                © 2026 Your Name
+            </span>
+
+            <span class="footer-mono">
+                Built with HTML + CSS
+            </span>
+
+        </div>
+    </footer>
 
 </body>
 </html>
