@@ -129,10 +129,11 @@ h3 {
     gap: 24px;
 
     font-size: 14px;
+    font-weight: 600;
 }
 
 .site-nav a {
-    color: var(--slate);
+    color: var(--charcoal);
 
     transition:
         color 160ms ease,
@@ -140,7 +141,7 @@ h3 {
 }
 
 .site-nav a:hover {
-    color: var(--charcoal);
+    color: var(--slate);
 }
 
 
@@ -185,27 +186,25 @@ h3 {
     line-height: 1.6;
 }
 
-.hero-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px 20px;
+.hero-links a {
+    display: inline-block;
+
+    padding: 6px 0;
+
+    color: var(--charcoal);
 
     font-family: var(--font-mono);
-    font-size: 13px;
-}
+    font-size: 15px;
 
-.hero-links a {
-    color: var(--slate);
-
-    border-bottom: 1px solid transparent;
+    border-bottom: 1px solid var(--mist);
 
     transition:
-        color 160ms ease,
+        background-color 160ms ease,
         border-color 160ms ease;
 }
 
 .hero-links a:hover {
-    color: var(--charcoal);
+    background: var(--ice-blue);
     border-color: var(--charcoal);
 }
 
@@ -245,7 +244,8 @@ h3 {
     color: var(--slate);
 
     font-family: var(--font-mono);
-    font-size: 12px;
+    font-size: 16px;
+    font-weight: 500;
 }
 
 .section-heading h2 {
@@ -617,6 +617,17 @@ h3 {
 
 :lang(ja) {
     font-family: var(--font-jp);
+}
+html[lang="ja"] body {
+    font-family: var(--font-jp);
+}
+
+html[lang="ja"] .section-number,
+html[lang="ja"] .eyebrow,
+html[lang="ja"] .tags,
+html[lang="ja"] .publication-links,
+html[lang="ja"] .footer-mono {
+    font-family: var(--font-mono);
 }
 
 
