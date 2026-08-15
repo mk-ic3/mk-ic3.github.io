@@ -371,6 +371,146 @@ h3 {
 
 
 /* =========================================================
+   INTERESTS (CARDS)
+   ========================================================= */
+
+.interests-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+
+    gap: var(--space-md);
+}
+
+.interest-card {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+
+    padding: var(--space-md);
+
+    background: var(--snow);
+
+    border: var(--border);
+}
+
+.interest-card .research-index {
+    margin-bottom: 4px;
+}
+
+.interest-card .research-content {
+    max-width: none;
+}
+
+.interest-card .tags {
+    margin-top: auto;
+}
+
+.interest-card:hover {
+    border-color: var(--ice-blue);
+}
+
+
+/* =========================================================
+   PROJECT / ARTICLE TITLE LINKS
+   ========================================================= */
+
+.research-content h3 a {
+    border-bottom: 1px solid var(--mist);
+
+    transition:
+        background-color 160ms ease,
+        border-color 160ms ease;
+}
+
+.research-content h3 a:hover {
+    background: var(--ice-blue);
+    border-color: var(--charcoal);
+}
+
+
+/* =========================================================
+   ARTICLES
+   ========================================================= */
+
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+
+    gap: var(--space-md);
+}
+
+.article-card {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+
+    padding: var(--space-md);
+
+    background: var(--snow);
+
+    border: var(--border);
+}
+
+.article-card:hover {
+    border-color: var(--ice-blue);
+}
+
+.article-date {
+    color: var(--slate);
+
+    font-family: var(--font-mono);
+    font-size: 12px;
+}
+
+.article-card h3 {
+    margin: 0;
+
+    font-size: 1.25rem;
+    font-weight: 500;
+    letter-spacing: -0.025em;
+}
+
+.article-card h3 a {
+    border-bottom: 1px solid var(--mist);
+
+    transition:
+        background-color 160ms ease,
+        border-color 160ms ease;
+}
+
+.article-card h3 a:hover {
+    background: var(--ice-blue);
+    border-color: var(--charcoal);
+}
+
+.article-card p {
+    margin: 0;
+
+    color: var(--slate);
+}
+
+.article-read {
+    margin-top: auto;
+
+    color: var(--charcoal);
+
+    font-family: var(--font-mono);
+    font-size: 12px;
+
+    border-bottom: 1px solid var(--mist);
+
+    align-self: flex-start;
+}
+
+.article-read:hover {
+    background: var(--ice-blue);
+    border-color: var(--charcoal);
+}
+
+
+/* =========================================================
    PUBLICATIONS
    ========================================================= */
 
