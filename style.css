@@ -599,10 +599,6 @@ html[lang="ja"] .footer-mono {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
     }
-
-    .photo-grid {
-        gap: 6px;
-    }
 }
 /* =========================================================
    PHOTOGRAPHY / UNSPLASH
@@ -824,20 +820,6 @@ html[lang="ja"] .footer-mono {
     .publication-year,
     .timeline-year {
         margin-bottom: 4px;
-    }
-
-    .photo-intro {
-        align-items: flex-start;
-        flex-direction: column;
-    }
-
-    .photo-grid {
-        grid-template-columns: 1fr;
-        gap: 8px;
-    }
-
-    .photo-placeholder {
-        aspect-ratio: 16 / 10;
     }
 
     .footer-inner {
