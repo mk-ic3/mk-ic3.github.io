@@ -218,6 +218,48 @@ h3 {
 
 
 /* =========================================================
+   HERO TITLE / CARET
+   ========================================================= */
+
+.site-title {
+    display: inline-block;
+}
+
+.site-title::after {
+    content: "|";
+
+    display: inline-block;
+
+    margin-left: 0.1em;
+
+    color: var(--ice-blue);
+
+    font-family: var(--font-mono);
+    font-weight: 500;
+
+    animation: caret-blink 0.9s steps(1, end) infinite;
+}
+
+@keyframes caret-blink {
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    50.01%,
+    100% {
+        opacity: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .site-title::after {
+        animation: none;
+    }
+}
+
+
+/* =========================================================
    SECTIONS
    ========================================================= */
 
